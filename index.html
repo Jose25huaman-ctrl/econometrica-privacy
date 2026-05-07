@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad — Econométrica</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --border: rgba(255,255,255,0.07);
+    --accent: #3b82f6;
+    --accent2: #06b6d4;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --heading: #f8fafc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(59,130,246,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 110%, rgba(6,182,212,0.10) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 56px;
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: -0.3px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 900;
+    color: var(--heading);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  h1 span {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .meta-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 56px;
+  }
+
+  .toc-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+  }
+
+  @media (max-width: 560px) {
+    .toc ol { grid-template-columns: 1fr; }
+  }
+
+  .toc li {
+    counter-increment: toc;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .toc a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .toc a:hover { color: var(--text); }
+
+  /* Sections */
+  section {
+    margin-bottom: 56px;
+    scroll-margin-top: 24px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h2 .num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 6px;
+    padding: 2px 8px;
+    letter-spacing: 1px;
+  }
+
+  p { margin-bottom: 16px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+
+  /* Data table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .data-table th {
+    background: rgba(59,130,246,0.1);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Callout */
+  .callout {
+    background: rgba(59,130,246,0.06);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .callout strong { color: var(--text); }
+
+  /* Platform badges */
+  .platforms {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .badge-ios {
+    background: rgba(59,130,246,0.12);
+    color: #93c5fd;
+    border: 1px solid rgba(59,130,246,0.2);
+  }
+
+  .badge-android {
+    background: rgba(34,197,94,0.12);
+    color: #86efac;
+    border: 1px solid rgba(34,197,94,0.2);
+  }
+
+  /* Contact */
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2));
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .contact-email {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--heading);
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 64px;
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading);
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  ul {
+    list-style: none;
+    margin: 12px 0 16px 0;
+  }
+
+  ul li {
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    color: var(--text);
+    font-size: 15px;
+  }
+
+  ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 12px;
+    top: 8px;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  strong { color: var(--heading); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo-row">
+      <div class="logo-icon">📊</div>
+      <span class="logo-text">Econométrica</span>
+    </div>
+    <h1>Política de<br><span>Privacidad</span></h1>
+    <div class="meta">
+      <span class="meta-item"><span class="meta-dot"></span>Última actualización: 6 de mayo de 2026</span>
+      <span class="meta-item"><span class="meta-dot"></span>Versión 1.0</span>
+      <span class="meta-item"><span class="meta-dot"></span>Aplicable a iOS y Android</span>
+    </div>
+  </header>
+
+  <div class="toc">
+    <div class="toc-title">Contenido</div>
+    <ol>
+      <li><a href="#info">Información que recopilamos</a></li>
+      <li><a href="#uso">Cómo usamos tus datos</a></li>
+      <li><a href="#terceros">Terceros y proveedores</a></li>
+      <li><a href="#notificaciones">Notificaciones</a></li>
+      <li><a href="#compras">Compras y suscripciones</a></li>
+      <li><a href="#retencion">Retención de datos</a></li>
+      <li><a href="#derechos">Tus derechos</a></li>
+      <li><a href="#menores">Menores de edad</a></li>
+      <li><a href="#cambios">Cambios a esta política</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ol>
+  </div>
+
+  <p>Econométrica ("nosotros", "nuestro") es una aplicación móvil de quizzes educativos sobre economía, disponible en iOS (App Store) y Android (Google Play). Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos la información personal de nuestros usuarios.</p>
+
+  <div class="platforms">
+    <span class="badge badge-ios">🍎 iOS — App Store</span>
+    <span class="badge badge-android">🤖 Android — Google Play</span>
+  </div>
+
+  <p>Al usar Econométrica, aceptas las prácticas descritas en esta política. Si no estás de acuerdo, por favor deja de usar la aplicación.</p>
+
+  <!-- 1 -->
+  <section id="info">
+    <h2><span class="num">01</span> Información que recopilamos</h2>
+    <p>Recopilamos la siguiente información cuando usas Econométrica:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Dato</th>
+          <th>Descripción</th>
+          <th>Vinculado al usuario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nombre y correo</strong></td>
+          <td>Al registrarte con email o Sign in with Apple / Google</td>
+          <td>✅ Sí</td>
+        </tr>
+        <tr>
+          <td><strong>UID de cuenta</strong></td>
+          <td>Identificador único generado al crear tu cuenta</td>
+          <td>✅ Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Datos de onboarding</strong></td>
+          <td>Universidad, semestre y carrera (opcionales)</td>
+          <td>✅ Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Historial de partidas</strong></td>
+          <td>Resultados, puntajes, rondas y fechas de juego</td>
+          <td>✅ Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Métricas de rendimiento</strong></td>
+          <td>Racha, partidas ganadas, precisión por materia</td>
+          <td>✅ Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Datos de compra</strong></td>
+          <td>Plan adquirido (gestionado por Apple/Google, no accedemos a datos de tarjeta)</td>
+          <td>✅ Sí</td>
+        </tr>
+        <tr>
+          <td><strong>Datos de notificaciones</strong></td>
+          <td>Preferencias de recordatorios locales</td>
+          <td>✅ Sí</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Importante:</strong> No recopilamos datos de ubicación, cámara, micrófono, contactos ni información de salud. No realizamos seguimiento entre aplicaciones (cross-app tracking) ni compartimos datos con redes publicitarias.
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="uso">
+    <h2><span class="num">02</span> Cómo usamos tus datos</h2>
+    <p>Usamos tu información exclusivamente para:</p>
+    <ul>
+      <li>Crear y gestionar tu cuenta de usuario</li>
+      <li>Guardar y sincronizar tu progreso entre dispositivos</li>
+      <li>Habilitar el modo multijugador online y torneos</li>
+      <li>Mostrar estadísticas y métricas de rendimiento</li>
+      <li>Enviarte recordatorios de práctica (si los activas)</li>
+      <li>Procesar y verificar tus compras o suscripciones</li>
+      <li>Mejorar el contenido y la experiencia de la app</li>
+    </ul>
+    <p><strong>No usamos tus datos para publicidad personalizada dirigida a terceros ni los vendemos bajo ninguna circunstancia.</strong></p>
+  </section>
+
+  <!-- 3 -->
+  <section id="terceros">
+    <h2><span class="num">03</span> Terceros y proveedores</h2>
+    <p>Econométrica utiliza los siguientes servicios de terceros como procesadores de datos:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Proveedor</th>
+          <th>Función</th>
+          <th>Política de privacidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Firebase (Google)</strong></td>
+          <td>Autenticación, base de datos y funciones en la nube</td>
+          <td><a href="https://firebase.google.com/support/privacy" target="_blank">Ver política</a></td>
+        </tr>
+        <tr>
+          <td><strong>Apple (Sign in with Apple)</strong></td>
+          <td>Autenticación en iOS</td>
+          <td><a href="https://www.apple.com/legal/privacy/" target="_blank">Ver política</a></td>
+        </tr>
+        <tr>
+          <td><strong>Google (Sign in with Google)</strong></td>
+          <td>Autenticación en Android</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank">Ver política</a></td>
+        </tr>
+        <tr>
+          <td><strong>Apple App Store</strong></td>
+          <td>Procesamiento de pagos iOS</td>
+          <td><a href="https://www.apple.com/legal/privacy/" target="_blank">Ver política</a></td>
+        </tr>
+        <tr>
+          <td><strong>Google Play</strong></td>
+          <td>Procesamiento de pagos Android</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank">Ver política</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Estos proveedores actúan como procesadores bajo nuestras instrucciones y están sujetos a sus propias políticas de privacidad.</p>
+  </section>
+
+  <!-- 4 -->
+  <section id="notificaciones">
+    <h2><span class="num">04</span> Notificaciones</h2>
+    <p>Econométrica usa <strong>notificaciones locales</strong> (generadas en tu dispositivo, no desde servidores externos) para enviarte recordatorios de práctica diaria con preguntas de economía.</p>
+    <ul>
+      <li>Solicitamos tu permiso antes de enviar cualquier notificación</li>
+      <li>Puedes desactivarlas en cualquier momento desde los ajustes de tu dispositivo</li>
+      <li>No usamos notificaciones para publicidad ni contenido comercial</li>
+      <li>La frecuencia es de máximo una notificación diaria</li>
+    </ul>
+  </section>
+
+  <!-- 5 -->
+  <section id="compras">
+    <h2><span class="num">05</span> Compras y suscripciones</h2>
+    <p>Econométrica ofrece compras opcionales para acceder a funciones premium:</p>
+    <ul>
+      <li><strong>Plan Mensual</strong> — suscripción de renovación automática mensual</li>
+      <li><strong>Plan Anual</strong> — suscripción de renovación automática anual</li>
+      <li><strong>Pro de por vida</strong> — pago único sin renovación</li>
+    </ul>
+    <div class="callout">
+      <strong>Importante:</strong> Todos los pagos son procesados por Apple App Store (iOS) o Google Play (Android). Econométrica nunca accede a los datos de tu tarjeta de crédito ni información bancaria. Las suscripciones se pueden cancelar en cualquier momento desde la configuración de tu cuenta en la tienda correspondiente.
+    </div>
+    <p>Las suscripciones se renuevan automáticamente salvo que las canceles al menos 24 horas antes del fin del periodo vigente.</p>
+  </section>
+
+  <!-- 6 -->
+  <section id="retencion">
+    <h2><span class="num">06</span> Retención de datos</h2>
+    <p>Conservamos tu información mientras tu cuenta esté activa. Si eliminas tu cuenta:</p>
+    <ul>
+      <li>Tus datos de perfil, historial de partidas y métricas son eliminados de nuestros servidores dentro de los <strong>30 días siguientes</strong></li>
+      <li>Los datos de autenticación son eliminados de Firebase Auth de forma inmediata</li>
+      <li>Puedes solicitar la eliminación de tu cuenta directamente desde la app en <strong>Perfil → Eliminar cuenta</strong></li>
+    </ul>
+  </section>
+
+  <!-- 7 -->
+  <section id="derechos">
+    <h2><span class="num">07</span> Tus derechos</h2>
+    <p>Como usuario tienes los siguientes derechos sobre tus datos personales:</p>
+    <ul>
+      <li><strong>Acceso:</strong> puedes ver tus datos desde tu perfil en la app</li>
+      <li><strong>Corrección:</strong> puedes actualizar tu nombre y datos de perfil en cualquier momento</li>
+      <li><strong>Eliminación:</strong> puedes eliminar tu cuenta y todos tus datos desde la app</li>
+      <li><strong>Portabilidad:</strong> puedes solicitar una copia de tus datos escribiéndonos</li>
+      <li><strong>Oposición:</strong> puedes desactivar notificaciones y funciones opcionales en cualquier momento</li>
+    </ul>
+    <p>Para ejercer cualquiera de estos derechos, contáctanos en la dirección indicada al final de esta política.</p>
+  </section>
+
+  <!-- 8 -->
+  <section id="menores">
+    <h2><span class="num">08</span> Menores de edad</h2>
+    <p>Econométrica está dirigida a usuarios de <strong>17 años o más</strong>, principalmente estudiantes universitarios. No recopilamos intencionadamente información de menores de 13 años. Si detectamos que un menor ha creado una cuenta, la eliminaremos de inmediato.</p>
+    <p>Si eres padre o tutor y crees que tu hijo ha proporcionado información personal, contáctanos para que podamos eliminarla.</p>
+  </section>
+
+  <!-- 9 -->
+  <section id="cambios">
+    <h2><span class="num">09</span> Cambios a esta política</h2>
+    <p>Podemos actualizar esta Política de Privacidad ocasionalmente. Cuando lo hagamos, actualizaremos la fecha de "última actualización" en la parte superior de esta página. Para cambios significativos, te notificaremos dentro de la app.</p>
+    <p>Te recomendamos revisar esta política periódicamente. El uso continuado de Econométrica después de cualquier cambio implica la aceptación de la nueva política.</p>
+  </section>
+
+  <!-- 10 -->
+  <section id="contacto">
+    <h2><span class="num">10</span> Contacto</h2>
+    <p>Si tienes preguntas sobre esta Política de Privacidad, quieres ejercer tus derechos o necesitas eliminar tus datos, contáctanos:</p>
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Correo de privacidad</div>
+        <div class="contact-email">jossdev.econometrica@gmail.com</div>
+      </div>
+    </div>
+    <p style="margin-top: 16px; font-size: 14px; color: var(--muted);">Desarrollado por <strong>JossDev</strong> — Huancayo, Perú.<br>Tiempo de respuesta: máximo 5 días hábiles.</p>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Econométrica</span>
+    <span class="footer-copy">© 2026 JossDev · Todos los derechos reservados</span>
+  </footer>
+
+</div>
+</body>
+</html>
